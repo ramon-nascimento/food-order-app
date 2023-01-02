@@ -25,18 +25,20 @@ export function MealItemForm({ id, onAddToCart }) {
 
     onAddToCart(enteredAmountNumber)
   }
+
+  const inputConfig = {
+    id: `amount_${id}`,
+    type: 'number',
+    defaultValue: '1',
+    min: '1', max: '5', step: '1',
+  }
   
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <Input
         ref={amountInputRef}
         label='Amount' 
-        input={{
-          id: `amount_${id}`,
-          type: 'number',
-          defaultValue: '1',
-          min: '1', max: '5', step: '1',
-        }}
+        input={inputConfig}
       />
 
       <button type="submit">
